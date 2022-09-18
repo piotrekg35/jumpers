@@ -7,7 +7,8 @@ using namespace std;
 
 int main()
 {
-	Game g1;
-	g1.start();
+	Game* g = Game::getInstance();
+	g->start();
+	delete g;
 	return 0;
 }

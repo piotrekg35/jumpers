@@ -1,9 +1,11 @@
 #include "Game.h"
+Game* Game::instance = nullptr;
 Game::Game() {
 	board = new Board();
 }
 Game::~Game() {
 	delete board;
+	instance = nullptr;
 }
 void Game::start() {
 	while (true){
@@ -67,4 +69,9 @@ bool Game::isThereWinner() {
 		return true;
 	}
 	return false;
+}
+Game* Game::getInstance(){
+	if (instance == nullptr)
+		instance = new Game();
+	return instance;
 }
